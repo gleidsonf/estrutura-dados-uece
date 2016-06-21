@@ -5,7 +5,7 @@ import br.uece.avl.structures.AVLArvore;
 public class OpenHashingAvl {
 
 	private AVLArvore[] vetor;
-	public final int SIZE = 37;
+	public final int SIZE = 7;
 
 	public OpenHashingAvl() {
 		vetor = new AVLArvore[SIZE];
@@ -125,8 +125,6 @@ public class OpenHashingAvl {
 		int cont = 0;
 		for (int i = 0; i < aux.length; i++) {
 			if (aux[i] != null) {
-				System.out.println("Get Altura " + aux[i].getAlturaArvore());
-				System.out.println("qtd Elementos " + aux[i].qtdElementos());
 				cont = Math.max(cont, (aux[i].getAlturaArvore() + 1));
 			}
 		}

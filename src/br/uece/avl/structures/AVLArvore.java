@@ -1,5 +1,6 @@
 package br.uece.avl.structures;
 
+
 public class AVLArvore {
 	public AVLNode raiz;
 
@@ -62,7 +63,8 @@ public class AVLArvore {
 	public AVLNode remove(int valor) {
 		AVLNode temp = new AVLNode();
 		if (valor == raiz.valor) {
-			raiz = remove(raiz, valor);
+			raiz = null;
+			//			raiz = remove(raiz, valor);
 			return raiz;
 		}
 		if (valor < raiz.valor) {
@@ -344,5 +346,28 @@ public class AVLArvore {
 		}
 		return cont + 1;
 	}
+
+	public boolean isFull() {
+		int qtdNodes = (int) Math.pow(2, getAlturaArvore());
+		if (qtdNodes == contaFolhas(raiz) / 2) {
+			return true;
+		}
+		return false;
+	}
+	public int contaFolhas(AVLNode node) {
+		int cont = 0;
+
+		if (node == null) {
+			cont += 1;
+		} else {
+			if(node != null){
+				cont += contaFolhas(node.direito);
+				cont += contaFolhas(node.esquerdo);
+			}
+				
+		}
+		return cont;
+	}
+	
 
 }
